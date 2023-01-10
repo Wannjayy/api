@@ -1,7 +1,7 @@
 // (4) Buat Schema Product
 const mongoose = require('mongoose')
 
-const ProdukSchema = mongoose.Schema({
+const AllprodukSchema = mongoose.Schema({
     // Buat Schema data
     nama: {
         type: String,
@@ -21,4 +21,4 @@ const ProdukSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Produk', ProdukSchema)
+module.exports = mongoose.model('Allproduk', AllprodukSchema)

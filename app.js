@@ -4,7 +4,10 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 require('dotenv/config')
+const cors = require('cors')
 
+
+app.use(cors())
 // (6) middleware body-parser
 // https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4
 app.use(bodyParser.urlencoded({
@@ -14,9 +17,11 @@ app.use(bodyParser.json());
 
 // (7) import routes
 const produkRoutes = require('./routes/produk')
+const allprodukRoutes = require('./routes/allproduk')
 
 // (8) app.use (mendaftarkan middleware baru ke Express)
 app.use('/produk', produkRoutes)
+app.use('/allproduk', allprodukRoutes)
 
 // (3) koneksi ke database mongodb
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })

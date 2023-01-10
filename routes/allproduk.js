@@ -1,12 +1,12 @@
 // (5) Buat router Mahasiswa
 const express = require('express')
 const router = express.Router() 
-const Produk = require('../models/Produk')
+const Allproduk = require('../models/Allproduk')
 
 // Create 
 router.post('/', async(req, res) => {
     // tampung input 
-    const produkPost = new Produk({
+    const allprodukPost = new Allproduk({
         nama: req.body.nama,
         harga: req.body.harga,
         gambar: req.body.gambar
@@ -14,9 +14,9 @@ router.post('/', async(req, res) => {
 
     try {
         // simpan data 
-        const produk = await produkPost.save()
+        const allproduk = await allprodukPost.save()
         // response
-        res.json(produk)
+        res.json(allproduk)
     } catch (error) {
         res.json({message: error})
     }
@@ -24,14 +24,14 @@ router.post('/', async(req, res) => {
 // Read
 router.get('/', async(req, res) => {
     try {
-        const produk = await Produk.find()
-        res.json(produk)
+        const allproduk = await Allproduk.find()
+        res.json(allproduk)
     } catch (error) {
         res.json({message: error})
     }
 })
 // Update 
-router.put('/:produkId', async(req, res) => {
+router.put('/:allprodukId', async(req, res) => {
     // tampung input
     const data = {
         nama: req.body.nama,
@@ -41,20 +41,20 @@ router.put('/:produkId', async(req, res) => {
 
     try {
         // update data 
-        const product = await Produk.updateOne({_id: req.params.produkId}, data)
+        const allproduct = await Allproduk.updateOne({_id: req.params.allprodukId}, data)
         // response
-        res.json(produk)
+        res.json(allproduk)
     } catch (error) {
         res.json({message: error})
     }
 })
 // Delete 
-router.delete('/:produkId', async(req, res) => {
+router.delete('/:allprodukId', async(req, res) => {
     try {
         // delete data 
-        const produk = await Produk.deleteOne({_id: req.params.produkId})
+        const allproduk = await Allproduk.deleteOne({_id: req.params.allprodukId})
         // response
-        res.json(produk)
+        res.json(allproduk)
     } catch (error) {
         res.json({message: error})
     }
