@@ -53,10 +53,10 @@ router.put('/:allprodukId', async(req, res) => {
     }
 })
 // Delete 
-router.delete('/:allproduknama', async(req, res) => {
+router.delete('/:allprodukId', async(req, res) => {
     try {
         // delete data 
-        const allproduk = await Allproduk.deleteOne({nama: req.params.allproduknama})
+        const allproduk = await Allproduk.deleteOne({_id: req.params.allprodukId})
         // response
         res.json(allproduk)
     } catch (error) {
@@ -64,9 +64,9 @@ router.delete('/:allproduknama', async(req, res) => {
     }
 })
 
-router.get('/:allprodukId', async(req, res) => {
+router.get('/:allproduknama', async(req, res) => {
     try {
-        const allproduk = await Allproduk.findOne({_id: req.params.allprodukId})
+        const allproduk = await Allproduk.findOne({nama: req.params.allproduknama})
         res.json(allproduk)
     } catch (error) {
         res.json({message: error})
