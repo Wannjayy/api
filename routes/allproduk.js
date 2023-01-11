@@ -2,6 +2,10 @@
 const express = require('express')
 const router = express.Router() 
 const Allproduk = require('../models/Allproduk')
+const app = express()
+
+
+app.use(express.json())
 
 // Create 
 router.post('/', async(req, res) => {
@@ -41,7 +45,7 @@ router.put('/:allprodukId', async(req, res) => {
 
     try {
         // update data 
-        const allproduct = await Allproduk.updateOne({_id: req.params.allprodukId}, data)
+        const allproduk = await Allproduk.updateOne({_id: req.params.allprodukId}, data)
         // response
         res.json(allproduk)
     } catch (error) {
@@ -49,11 +53,20 @@ router.put('/:allprodukId', async(req, res) => {
     }
 })
 // Delete 
-router.delete('/:allprodukId', async(req, res) => {
+router.delete('/:allproduknama', async(req, res) => {
     try {
         // delete data 
-        const allproduk = await Allproduk.deleteOne({_id: req.params.allprodukId})
+        const allproduk = await Allproduk.deleteOne({nama: req.params.allproduknama})
         // response
+        res.json(allproduk)
+    } catch (error) {
+        res.json({message: error})
+    }
+})
+
+router.get('/:allprodukId', async(req, res) => {
+    try {
+        const allproduk = await Allproduk.findOne({_id: req.params.allprodukId})
         res.json(allproduk)
     } catch (error) {
         res.json({message: error})
