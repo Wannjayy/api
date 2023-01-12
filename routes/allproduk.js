@@ -64,9 +64,9 @@ router.delete('/:allprodukId', async(req, res) => {
     }
 })
 
-router.get('/:allproduknama', async(req, res) => {
+router.get('/:allprodukId', async(req, res) => {
     try {
-        const allproduk = await Allproduk.findOne({nama: req.params.allproduknama})
+        const allproduk = await Allproduk.findById(req.params.allprodukId)
         res.json(allproduk)
     } catch (error) {
         res.json({message: error})
