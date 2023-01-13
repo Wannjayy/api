@@ -7,14 +7,14 @@ const PesananSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    alamat: {
-        type: String,
-        required: true
-    },
     keranjangs: {
         type: Array,
         required: true
     },
+    alamat: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Pesanan', PesananSchema)
