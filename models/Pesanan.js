@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const PesananSchema = mongoose.Schema({
     // Buat Schema data
     nama: {
-        type: Number,
+        type: String,
         required: true
     },
     keranjangs: {
