@@ -9,7 +9,7 @@ router.post('/', async(req, res) => {
     const pesananPost = new Pesanan({
         nama: req.body.nama,
         alamat: req.body.alamat,
-        keranjang: req.body.keranjang
+        keranjangs: req.body.keranjangs
     })
 
     try {
