@@ -11,7 +11,7 @@ const KeranjangSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    produk: {
+    product: {
         type: Object,
         required: true
     },
