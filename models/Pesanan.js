@@ -12,7 +12,7 @@ const PesananSchema = mongoose.Schema({
         required: true
     },
     keranjangs: {
-        type: Object,
+        type: Array,
         required: true
     },
 })
