@@ -30,6 +30,15 @@ router.get('/', async(req, res) => {
         res.json({message: error})
     }
 })
+
+router.get('/:keranjangId', async(req, res) => {
+    try {
+        const keranjang = await Keranjang.findOne({_id: req.params.keranjangId})
+        res.json(keranjang)
+    } catch (error) {
+        res.json({message: error})
+    }
+})
 // Delete 
 router.delete('/:keranjangId', async(req, res) => {
     try {
