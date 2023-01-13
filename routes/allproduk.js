@@ -34,6 +34,15 @@ router.get('/', async(req, res) => {
         res.json({message: error})
     }
 })
+
+router.get('/:allproduknama', async(req, res) => {
+    try {
+        const allproduk = await Allproduk.findOne({nama: req.params.allproduknama})
+        res.json(allproduk)
+    } catch (error) {
+        res.json({message: error})
+    }
+})
 // Update 
 router.put('/:allprodukId', async(req, res) => {
     // tampung input
@@ -58,15 +67,6 @@ router.delete('/:allprodukId', async(req, res) => {
         // delete data 
         const allproduk = await Allproduk.deleteOne({_id: req.params.allprodukId})
         // response
-        res.json(allproduk)
-    } catch (error) {
-        res.json({message: error})
-    }
-})
-
-router.get('/:allproduknama', async(req, res) => {
-    try {
-        const allproduk = await Allproduk.findOne({nama: req.params.allproduknama})
         res.json(allproduk)
     } catch (error) {
         res.json({message: error})
