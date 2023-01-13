@@ -7,12 +7,12 @@ const PesananSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    keranjangs: {
-        type: Array,
-        required: true
-    },
     alamat: {
         type: String,
+        required: true
+    },
+    keranjangs: {
+        type: Array,
         required: true
     }
 })

@@ -8,8 +8,8 @@ router.post('/', async(req, res) => {
     // tampung input 
     const pesananPost = new Pesanan({
         nama: req.body.nama,
-        keranjangs: req.body.keranjangs,
-        alamat: req.body.alamat
+        alamat: req.body.alamat,
+        keranjangs: req.body.keranjangs
     })
 
     try {
